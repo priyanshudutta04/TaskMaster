@@ -1,8 +1,8 @@
-# learningdart
+# TaskMaster
 
-A new Flutter project.
+An application designed to track your habit, take notes, create to do list for you, and much more in a single app. Currently work in progress
 
-## Getting Started
+## How to Run?
 
 This project is a starting point for a Flutter application.
 
