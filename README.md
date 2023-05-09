@@ -8,7 +8,7 @@ An application designed to track your habit, take notes, create to do list for y
 2. Fetch latest source code from master branch.
 
 ```
-git clone https://github.com/Remedy-Technologies/yogcare.git
+git clone https://github.com/priyanshudutta04/TaskMaster.git
 ```
 
 3. Run the app with Android Studio or VS Code. Or the command line:
