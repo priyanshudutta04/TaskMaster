@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 //import 'dart:html';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learningdart/pages/habit.dart';
+import 'package:learningdart/pages/notes.dart';
 import 'package:learningdart/pages/settings.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -14,7 +14,7 @@ import 'package:learningdart/models/catalog.dart';
 import '../widgets/drawer.dart';
 import 'dolist.dart';
 import 'home_details.dart';
-import 'package:learningdart/utils/routes.dart';
+
 
 
 class HomePage extends StatefulWidget {
@@ -107,7 +107,7 @@ class CatalogList extends StatelessWidget {
         if (catalog.id.toString()=="1"){
             return InkWell(    
               onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SettingsPage(),)
+                context, MaterialPageRoute(builder: (context) => NotesPage(),)
                 ),
               child: CatalogItem(catalog: catalog)
             );
@@ -165,7 +165,7 @@ class CatalogItem extends StatelessWidget {
             children:[
               catalog.name.text.xl
               .textStyle(context.captionStyle)
-              .bold.color(context.theme.buttonColor).make(),     //prod name
+              .bold.color(context.theme.hintColor).make(),     //prod name
               catalog.desc.text.make().py8(),                         //prod description
               
               

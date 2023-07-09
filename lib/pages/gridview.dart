@@ -41,8 +41,8 @@ class _GridPageState extends State<GridPage> {
 
   @override
   Widget build(BuildContext context) {
-      String appName = "organizer";
-      final dummylist = List.generate(20, (index) => CatalogModels.items[0]);
+      //String appName = "organizer";
+      //final dummylist = List.generate(20, (index) => CatalogModels.items[0]);
 
     return Scaffold(                                 //AppBar
       appBar: AppBar(       

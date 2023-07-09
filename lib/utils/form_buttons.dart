@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
 
+
+// ignore: must_be_immutable
 class MyButton extends StatelessWidget {
   final String text;
   VoidCallback onPressed;
@@ -14,8 +15,8 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      color: Theme.of(context).buttonColor,
-      child: Text(text,style: TextStyle(color: Colors.white),),
+      color: Theme.of(context).hintColor,
+      child: Text(text,style: const TextStyle(color: Colors.white),),
     );
   }
 }

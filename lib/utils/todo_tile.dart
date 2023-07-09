@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+// ignore: must_be_immutable
 class ToDoTile extends StatelessWidget {
   ToDoTile({
     super.key, 
@@ -28,7 +29,7 @@ class ToDoTile extends StatelessWidget {
       child: Slidable(
         endActionPane: ActionPane(
           extentRatio: 0.2,              //This is a percentage of the width
-          motion: ScrollMotion(),         //Type of Motion
+          motion: const ScrollMotion(),         //Type of Motion
           children: [SlidableAction(
             onPressed: deleteFunction, 
             icon: Icons.delete,
@@ -44,7 +45,7 @@ class ToDoTile extends StatelessWidget {
               Checkbox(
                 value: taskcompleted, 
                 onChanged: onChanged,
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 activeColor: context.theme.focusColor,
               ),
               Text(

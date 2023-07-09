@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:hive/hive.dart';
 import 'package:learningdart/db/db.dart';
-import 'package:learningdart/utils/date_time.dart';
+
 import 'package:velocity_x/velocity_x.dart';
 
 import '../utils/form_buttons.dart';
@@ -68,12 +67,12 @@ class _HabitPageState extends State<HabitPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [             
-                Text("Work Hard in Silence",style: TextStyle(fontSize: 16),),
+                const Text("Work Hard in Silence",style: TextStyle(fontSize: 16),),
                 //input
                 TextField(
                   style: TextStyle(color: context.primaryColor),
                   controller: controller,
-                  decoration: InputDecoration(hintText: "Add a New Habit", hintStyle: TextStyle(color: Colors.grey )),
+                  decoration: const InputDecoration(hintText: "Add a New Habit", hintStyle: TextStyle(color: Colors.grey )),
                 ),
 
                 Row(
@@ -81,7 +80,7 @@ class _HabitPageState extends State<HabitPage> {
                   //save button
                   children: [
                     MyButton(text: "Save", onPressed: saveNewHabit),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     MyButton(text: "Cancel", onPressed: () => Navigator.pop(context),)
                   ],
                 )
@@ -122,12 +121,12 @@ class _HabitPageState extends State<HabitPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [             
-                Text("Update Habit?",style: TextStyle(fontSize: 16),),
+                const Text("Update Habit?",style: TextStyle(fontSize: 16),),
                 //input
                 TextField(
                   style: TextStyle(color: context.primaryColor),
                   controller: newcontroller,
-                  decoration: InputDecoration(hintText: "Update your Habit", hintStyle: TextStyle(color: Colors.grey )),
+                  decoration: const InputDecoration(hintText: "Update your Habit", hintStyle: TextStyle(color: Colors.grey )),
                 ),
 
                 Row(
@@ -135,7 +134,7 @@ class _HabitPageState extends State<HabitPage> {
                   //save button
                   children: [
                     MyButton(text: "Save", onPressed:() => saveExistingHabit(index)),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     MyButton(text: "Cancel", onPressed: () => Navigator.pop(context),)
                   ],
                 )
@@ -179,8 +178,8 @@ class _HabitPageState extends State<HabitPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewHabit,
-        child: Icon(CupertinoIcons.plus,color: Colors.white,),
-        backgroundColor: context.theme.buttonColor,
+        backgroundColor: context.theme.hintColor,
+        child: const Icon(CupertinoIcons.plus,color: Colors.white,),
       ),
 
       body: ListView(

@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../models/catalog.dart';
-import '../widgets/drawer.dart';
+
 
 class HomeDetails extends StatelessWidget {
  
@@ -20,8 +19,8 @@ class HomeDetails extends StatelessWidget {
       
       
       floatingActionButton: FloatingActionButton(onPressed: () {},
-        child: Icon(CupertinoIcons.cart),
         backgroundColor: Color.fromRGBO(53, 1, 61, 1),
+        child: Icon(CupertinoIcons.cart),
       ),
       backgroundColor: Color.fromRGBO(245,245,245, 1),
       body: SafeArea(
@@ -34,8 +33,8 @@ class HomeDetails extends StatelessWidget {
               Expanded(
                   child: VxArc(
                     height: 15.0,
-                    edge: VxEdge.TOP,
-                    arcType: VxArcType.CONVEY,
+                    //edge: VxEdge.TOP,
+                    //arcType: VxArcType.CONVEY,
 
                     child: Container(
                       color: Colors.white,

@@ -4,14 +4,12 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 //import 'package:flutter/rendering.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter_switch/flutter_switch.dart';
-import 'package:learningdart/widgets/themes.dart';
 
 import '../main.dart';
-import '../utils/routes.dart';
+
 
 //import '../models/catalog.dart';
 

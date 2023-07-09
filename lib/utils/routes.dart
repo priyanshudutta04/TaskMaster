@@ -4,5 +4,6 @@ class Myroutes{
   static String homeDetailsRoute = "/detail";
   static String doListRoute = "/dolist";
   static String habitRoute = "/habit";
+  static String notesRoute = "/notes";
   static String settingsRoute = "/settings";
 }

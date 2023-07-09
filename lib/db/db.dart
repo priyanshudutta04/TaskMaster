@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:learningdart/utils/date_time.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 
 
 class ToDoDatabase{
@@ -30,16 +28,6 @@ class ToDoDatabase{
    }
 
 }
-
-
-
-
-
-
-
-
-
-
 
 final habitbox = Hive.box("Habit_db");
 

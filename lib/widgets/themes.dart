@@ -15,7 +15,7 @@ class Mytheme{
         primaryColor: Color.fromRGBO(53, 1, 61, 1),        //text colour
         cardColor: Color.fromRGBO(245,245,245, 1),        //background colour
         canvasColor: Colors.white,
-        buttonColor:  Color.fromRGBO(53, 1, 61, 1),
+        hintColor:  Color.fromRGBO(53, 1, 61, 1),
         dividerColor: Color.fromRGBO(255,249,196, 1),     //Alternate colour for list tile
         unselectedWidgetColor: Colors.red,
         focusColor: Colors.deepPurple,                         //active colour for  checkbox
@@ -36,7 +36,7 @@ class Mytheme{
         primaryColor: Color.fromRGBO(245,245,245, 1),     //text color
         cardColor: Color.fromRGBO(17,17,17, 1),           //background colour
         canvasColor: Color.fromRGBO(30,30,30, 1),
-        buttonColor:  Color.fromRGBO(152,94,255, 1),
+        hintColor:  Color.fromRGBO(152,94,255, 1),
         dividerColor: Color.fromRGBO(66,66,66, 1),     //Alternate colour for list tile
         unselectedWidgetColor: Colors.red,
         focusColor: Color.fromRGBO(152,94,255, 1),                         //active colour for  checkbox

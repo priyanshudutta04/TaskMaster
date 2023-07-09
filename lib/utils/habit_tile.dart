@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+// ignore: must_be_immutable
 class HabitTile extends StatelessWidget {
   HabitTile({
     super.key, 
@@ -30,12 +28,12 @@ class HabitTile extends StatelessWidget {
       child: Slidable(
         endActionPane: ActionPane(
           extentRatio: 0.5,              //This is a percentage of the width
-          motion: BehindMotion(),         //Type of Motion
+          motion: const BehindMotion(),         //Type of Motion
           children: [
             SlidableAction(
               onPressed:settingsFunction, 
               icon: Icons.settings,
-              backgroundColor: Color.fromRGBO(96,100,103, 1),
+              backgroundColor: const Color.fromRGBO(96,100,103, 1),
               borderRadius: BorderRadius.circular(10),      
             ),
             SlidableAction(

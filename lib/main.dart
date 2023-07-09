@@ -1,11 +1,12 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_local_variable, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:learningdart/db/db.dart';
+
 import 'package:learningdart/pages/dolist.dart';
 import 'package:learningdart/pages/habit.dart';
 import 'package:learningdart/pages/home.dart';
+import 'package:learningdart/pages/notes.dart';
 import 'package:learningdart/pages/settings.dart';
 //import 'package:velocity_x/velocity_x.dart';
 
@@ -15,7 +16,7 @@ import 'package:learningdart/widgets/themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'pages/login.dart';
-import 'pages/settings.dart';
+
 
 
 void main()async {
@@ -61,6 +62,7 @@ class MyApp extends StatelessWidget {
         Myroutes.doListRoute: (context) => DoListPage(),
         Myroutes.habitRoute: (context) => HabitPage(),
         Myroutes.settingsRoute: (context) => SettingsPage(),
+        Myroutes.notesRoute: (context) => NotesPage(),
         
       },
     );   

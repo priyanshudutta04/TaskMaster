@@ -1,18 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:learningdart/db/db.dart';
 import 'package:learningdart/utils/form_buttons.dart';
 import 'package:velocity_x/velocity_x.dart';
-import '../utils/routes.dart';
 import '../utils/todo_tile.dart';
 
 
 class DoListPage extends StatefulWidget {
-  DoListPage({super.key,});
+  const DoListPage({super.key,});
    
   
   @override
@@ -125,8 +123,8 @@ class _DoListPageState extends State<DoListPage> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
+        backgroundColor: context.theme.hintColor,
         child: Icon(CupertinoIcons.plus,color: Colors.white,),
-        backgroundColor: context.theme.buttonColor,
       ),
       
       body: SafeArea(
