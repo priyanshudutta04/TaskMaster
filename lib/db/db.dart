@@ -1,6 +1,8 @@
 import 'package:learningdart/utils/date_time.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../widgets/colors.dart';
+
 
 class ToDoDatabase{
   List toDoList =[];
@@ -130,4 +132,9 @@ class HabitDatabase {
       print(heatMapDataSet);
     }
   }
+}
+
+class NoteDatabase{
+ 
+
 }

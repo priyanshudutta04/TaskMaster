@@ -4,7 +4,6 @@
 import 'package:flutter/material.dart';
 import 'package:learningdart/pages/habit.dart';
 import 'package:learningdart/pages/notes.dart';
-import 'package:learningdart/pages/settings.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:flutter/services.dart';                    // take json
