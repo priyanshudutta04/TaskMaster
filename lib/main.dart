@@ -26,8 +26,10 @@ void main()async {
   await Hive.openBox("Habit_db");
   //do list db
   var doListBox= await Hive.openBox("DoList_db");
-  //do list db
+  //habit db
   var habitBox= await Hive.openBox("Habit_db");
+  //notes db
+  var notebox= await Hive.openBox("Notes_db");
 
   //SharedPreferences sp = await SharedPreferences.getInstance();
   //isDark=sp.getBool("theme")??false;
