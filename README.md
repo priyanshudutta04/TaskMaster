@@ -1,6 +1,6 @@
 # TaskMaster
 
-An application designed to track your habit, take notes, create to do list for you, and much more in a single app. Currently work in progress
+An application designed to track your habit, take notes, create to do list for you, in a single app. Currently work in progress
 
 ## Building from Source
 
