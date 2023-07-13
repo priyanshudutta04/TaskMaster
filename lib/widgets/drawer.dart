@@ -25,22 +25,22 @@ class AppDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.zero,
-                accountName: Text("User Name", style: TextStyle(
+                accountName: Text("User", style: TextStyle(
                   color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold
                   ),),
                 accountEmail: Text("usermail@gmail.com", style: TextStyle(color: Colors.white),),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/profile-pic2.jpg"),
+                  backgroundImage: AssetImage("assets/images/user_image2.jpg"),
                 ),
               ),
             ),
 
-            ListTile(                                                                         //1st Tiltle
-              leading: Icon(CupertinoIcons.home, color: context.theme.hintColor,),   // Use Cupertino Icons Or Icons
+            ListTile(                                                                         
+              leading: Icon(CupertinoIcons.home, color: context.theme.hintColor,),   
               title: Text("Home", textScaleFactor: 1.3,),    
             ),
            
-             ListTile(                                                                     //5th Title
+             ListTile(                                                                     
              leading: Icon(CupertinoIcons.gear, color: context.theme.hintColor,),        
               title: Text("Settings", textScaleFactor: 1.3,),
               onTap: () {

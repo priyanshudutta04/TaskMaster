@@ -7,7 +7,9 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../db/db.dart';
 import '../utils/form_buttons.dart';
-import '../widgets/colors.dart';
+import '../widgets/notes_colors.dart';
+import 'package:velocity_x/velocity_x.dart';
+import '../widgets/themes.dart';
 
 class NotesPage extends StatefulWidget {
   const NotesPage({super.key});
@@ -148,13 +150,11 @@ class _NotesPageState extends State<NotesPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
                 child: ListView(
                    children:  [
-
                     ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: db.notesList.length,
                       itemBuilder: (context, index) {
-                        //final currentItem=db.notesList[index];
 
                         return Padding(
                           padding:  EdgeInsets.symmetric(vertical: 10),
@@ -167,41 +167,48 @@ class _NotesPageState extends State<NotesPage> {
                             child:  Row(                        
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SizedBox(width: 8,),
+
+                                const SizedBox(width: 8,),
+                                
                                 Expanded(
                                   flex: 4,
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,              
                                     children: [
                                       Text(db.notesList[index][0],
-                                      style: TextStyle(
+                                      style:  TextStyle(
                                         fontSize: 18,
-                                        fontWeight: FontWeight.w600
+                                        fontWeight: FontWeight.w600,
+                                        
                                         ),
                                       ),
-                                      SizedBox(height: 10,),
-                                      Text(db.notesList[index][1]),
-                                      SizedBox(height: 10,),
+                                      const SizedBox(height: 10,),
+                                      Text(db.notesList[index][1],style:  TextStyle(
+                                        color: context.primaryColor
+                                        ),),
+                                      const SizedBox(height: 10,),
                                     ]
                                   ),
                                 ),
-                                SizedBox(width: 10,),
+
+                                const SizedBox(width: 10,),
+
                                 Expanded(
                                   flex: 1,
-                                    child: IconButton(
-                                      onPressed: ()=>deleteNote(index), 
-                                      icon: Icon(Icons.delete)
-                                      ),
-                                  
+                                  child: IconButton(
+                                    onPressed: ()=>deleteNote(index), 
+                                    icon: Icon(Icons.delete),
+                                    color: context.theme.unselectedWidgetColor,
+                                  ),                   
                                 )
+
                               ]
                             ),
                           ),
                         );
-                      },
-                    ),
 
-                       
+                      },
+                    ),    
                    ],
                 ),
               ),

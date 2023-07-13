@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -45,8 +46,8 @@ class HomeDetails extends StatelessWidget {
                         child: Column(children: [
                           catalog.name.text.xl3
                           .textStyle(context.captionStyle)
-                          .bold.color(Color.fromRGBO(53, 1, 61, 1)).make(),     //prod name
-                          catalog.desc.text.xl.make().py8(),                         //prod description
+                          .bold.color(Color.fromRGBO(53, 1, 61, 1)).make(),     
+                          catalog.desc.text.xl.make().py8(),                         
                           "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate".text.textStyle(context.captionStyle).make().py16(),
                         ]),
                       ),

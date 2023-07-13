@@ -2,11 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import 'package:learningdart/pages/notes.dart';
-
-import '../db/db.dart';
-import '../widgets/colors.dart';
+import '../widgets/notes_colors.dart';
 
 // ignore: must_be_immutable
 class NoteTile extends StatelessWidget {
@@ -63,7 +59,7 @@ class NoteTile extends StatelessWidget {
           Expanded(
             flex: 1,
             child: IconButton(
-              onPressed:()=> deleteFunction, 
+              onPressed: ()=>deleteFunction, 
               icon: Icon(Icons.delete)
             ),     
           )

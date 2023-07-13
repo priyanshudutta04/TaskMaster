@@ -4,25 +4,22 @@
             "id": 1,
             "name": "Notes",
             "desc": "Keep all your notes safely",
-            "price": 999,
             "color": "#33505a",
-            "image": "https://i.postimg.cc/Dz1Z2sLF/Checklist.jpg"
+            "image": "https://i.postimg.cc/Kjdq4nHn/notebook-edited.png"
         },
         {
             "id": 2,
             "name": "Habit Tracker",
-            "desc": "Work hard on your habits",
-            "price": 699,
+            "desc": "Work hard on your habits",         
             "color": "#00ac51",
-            "image": "https://i.postimg.cc/tTtYzP4D/20943965.jpg"
+            "image": "https://i.postimg.cc/8k3nySzj/habit-edited.png"
         },
         {
             "id": 3,
             "name": "To DO List",
-            "desc": "Create a List for your daily needs",
-            "price": 1099,
+            "desc": "Create a List for your daily needs",           
             "color": "#e0bfae",
-            "image": "https://i.postimg.cc/9MGqNKJd/43029.jpg"
+            "image": "https://i.postimg.cc/7Y2tdW5X/todo-edited.png"
         }
         
         

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 import '../models/catalog.dart';
 
@@ -22,7 +22,7 @@ class ItemWidget extends StatelessWidget {
         leading: Image.network(item.img),
         title: Text(item.name),
         subtitle: Text(item.desc),
-        trailing: Text("\$${item.price}",
+        trailing: Text("\$${item.name}",
           textScaleFactor: 1.3,
           style: const TextStyle(
           fontWeight: FontWeight.bold,
@@ -32,4 +32,4 @@ class ItemWidget extends StatelessWidget {
       ),
     );
   }
-}
+}*/

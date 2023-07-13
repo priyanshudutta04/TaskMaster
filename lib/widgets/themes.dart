@@ -17,7 +17,7 @@ class Mytheme{
         canvasColor: Colors.white,
         hintColor:  Color.fromRGBO(53, 1, 61, 1),
         dividerColor: Color.fromRGBO(255,249,196, 1),     //Alternate colour for list tile
-        unselectedWidgetColor: Colors.red,
+        unselectedWidgetColor: Color.fromARGB(255, 219, 32, 32),
         focusColor: Colors.deepPurple,                         //active colour for  checkbox
         
         appBarTheme: AppBarTheme(

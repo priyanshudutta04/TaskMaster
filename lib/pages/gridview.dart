@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-
+/*
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 //import 'package:flutter/services.dart';                    // take json
@@ -85,7 +85,7 @@ class _GridPageState extends State<GridPage> {
                       ),                    
                     padding: EdgeInsets.all(12),
                       child: Text(
-                        "\$${item.price}",
+                        "\$${item.name}",
                         textScaleFactor: 1.1,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
@@ -105,4 +105,4 @@ class _GridPageState extends State<GridPage> {
       )     
     );
   }
-}
+}*/
