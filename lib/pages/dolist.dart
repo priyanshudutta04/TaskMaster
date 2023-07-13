@@ -109,6 +109,9 @@ class _DoListPageState extends State<DoListPage> {
       db.toDoList.removeAt(index);
     });
     db.updateDb();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Task Deleted"))
+    );
   }
 
   @override

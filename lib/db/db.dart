@@ -68,16 +68,10 @@ class HabitDatabase {
 
   // update database
   void updateDb() {
-    // update todays entry
-    habitbox.put(todaysDateFormatted(), habitList);
-
-    // update universal habit list in case it changed (new habit, edit habit, delete habit)
-    habitbox.put("HABITLIST", habitList);
-
-    // calculate habit complete percentages for each day
+    
+    habitbox.put(todaysDateFormatted(), habitList);   
+    habitbox.put("HABITLIST", habitList);  
     calculateHabitPercentages();
-
-    // load heat map
     loadHeatMap();
   }
 
@@ -93,19 +87,14 @@ class HabitDatabase {
         ? '0.0'
         : (countCompleted / habitList.length).toStringAsFixed(1);
 
-    // key: "PERCENTAGE_SUMMARY_yyyymmdd"
-    // value: string of 1dp number between 0.0-1.0 inclusive
     habitbox.put("PERCENTAGE_SUMMARY_${todaysDateFormatted()}", percent);
   }
 
   void loadHeatMap() {
     DateTime startDate = createDateTimeObject(habitbox.get("START_DATE"));
 
-    // count the number of days to load
     int daysInBetween = DateTime.now().difference(startDate).inDays;
 
-    // go from start date to today and add each percentage to the dataset
-    // "PERCENTAGE_SUMMARY_yyyymmdd" will be the key in the database
     for (int i = 0; i < daysInBetween + 1; i++) {
       String yyyymmdd = convertDateTimeToString(
         startDate.add(Duration(days: i)),
@@ -115,15 +104,8 @@ class HabitDatabase {
         habitbox.get("PERCENTAGE_SUMMARY_$yyyymmdd") ?? "0.0",
       );
 
-      // split the datetime up like below so it doesn't worry about hours/mins/secs etc.
-
-      // year
       int year = startDate.add(Duration(days: i)).year;
-
-      // month
       int month = startDate.add(Duration(days: i)).month;
-
-      // day
       int day = startDate.add(Duration(days: i)).day;
 
       final percentForEachDay = <DateTime, int>{
@@ -138,6 +120,29 @@ class HabitDatabase {
 
 class NoteDatabase{
  
- 
+  List notesList=[];
+
+  //reference the box
+   final mybox = Hive.box("Notes_db");
+
+
+   //create initial data
+   void createInitialNote(){
+    notesList=[
+      ["First Note","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus odio massa, vehicula non mollis a, iaculis eget enim. Suspendisse efficitur cursus odio ac consequat."],
+      
+      ["Second Note","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus odio massa, vehicula non mollis a, iaculis eget enim. Suspendisse efficitur cursus odio ac consequat."]
+    ];
+   }
+
+   //load data from db
+   void loadNote(){
+    notesList =mybox.get("NOTELIST");
+   }
+
+   //update data
+   void updateNote(){
+    mybox.put("NOTELIST", notesList);
+   }
 
 }

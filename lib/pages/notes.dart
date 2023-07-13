@@ -21,47 +21,44 @@ class _NotesPageState extends State<NotesPage> {
   final notebox = Hive.box("Notes_db");
   NoteDatabase db = NoteDatabase();
 
-  List<Map<String, dynamic>> _items=[
-   
-  ];
+
 
   final nameController=TextEditingController();
-  final textController=TextEditingController();
+  final bodyController=TextEditingController();
 
+  @override
    void initState() {
+
+    if(notebox.get("NOTELIST")==null){
+      db.createInitialNote();
+    }
+    else{
+      db.loadNote();
+    }
     // TODO: implement initState
     super.initState();
-    refreshItems();
   }
 
-  void refreshItems(){
-    final data=notebox.keys.map((key){
-      final item=notebox.get(key);
-      return {"key": key, "name":item["name"],"text":item["text"]};
-    }).toList();
 
+  void saveNewNote(){
     setState(() {
-      _items=data.reversed.toList();
-      print(_items.length);
+      db.notesList.add([nameController.text,bodyController.text]);
+      nameController.clear();
+      bodyController.clear();
     });
-  }
-
-  Future<void> saveNewNote(Map<String, dynamic> newItem) async{
-     
-    notebox.add(newItem);
-    refreshItems();
     Navigator.of(context, rootNavigator: true).pop(context);
+    db.updateNote();
   }
 
-
-  Future<void> _deleteNote(int itemkey) async{
-    await notebox.delete(itemkey);
-    refreshItems();
-
+  //delete task
+  void deleteNote(int index){
+    setState(() {
+      db.notesList.removeAt(index);
+    });
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Item Deleted"))
-
+      const SnackBar(content: Text("Note Deleted"))
     );
+    db.updateNote();
   }
 
 
@@ -96,7 +93,7 @@ class _NotesPageState extends State<NotesPage> {
                 ),
                  TextField(
                   style: TextStyle(color: context.primaryColor),
-                  controller: textController,
+                  controller: bodyController,
                   decoration: const InputDecoration(
                     hintText: "Note's body", hintStyle: TextStyle(color: Colors.grey )
                   ),
@@ -108,13 +105,7 @@ class _NotesPageState extends State<NotesPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   //save button
                   children: [
-                    MyButton(text: "Save", onPressed: () async{
-                      saveNewNote({
-                        "name": nameController.text,
-                        "text": textController.text,
-                      });
-                    }),
-
+                    MyButton(text: "Save", onPressed: saveNewNote),
                     const SizedBox(width: 8),
                     MyButton(text: "Cancel", onPressed: () => Navigator.pop(context),)
                   ],
@@ -125,7 +116,7 @@ class _NotesPageState extends State<NotesPage> {
          );
        })
     );
-    
+    db.updateNote();
   }
 
    randomColor(){
@@ -161,9 +152,9 @@ class _NotesPageState extends State<NotesPage> {
                     ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: _items.length,
+                      itemCount: db.notesList.length,
                       itemBuilder: (context, index) {
-                        final currentItem=_items[index];
+                        //final currentItem=db.notesList[index];
 
                         return Padding(
                           padding:  EdgeInsets.symmetric(vertical: 10),
@@ -182,14 +173,14 @@ class _NotesPageState extends State<NotesPage> {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,              
                                     children: [
-                                      Text(currentItem['name'],
+                                      Text(db.notesList[index][0],
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w600
                                         ),
                                       ),
                                       SizedBox(height: 10,),
-                                      Text(currentItem['text']),
+                                      Text(db.notesList[index][1]),
                                       SizedBox(height: 10,),
                                     ]
                                   ),
@@ -198,7 +189,7 @@ class _NotesPageState extends State<NotesPage> {
                                 Expanded(
                                   flex: 1,
                                     child: IconButton(
-                                      onPressed: ()=>_deleteNote(currentItem['key']), 
+                                      onPressed: ()=>deleteNote(index), 
                                       icon: Icon(Icons.delete)
                                       ),
                                   
