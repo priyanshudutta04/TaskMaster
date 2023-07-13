@@ -138,5 +138,6 @@ class HabitDatabase {
 
 class NoteDatabase{
  
+ 
 
 }

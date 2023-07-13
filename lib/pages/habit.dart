@@ -165,6 +165,9 @@ class _HabitPageState extends State<HabitPage> {
       db.habitList.removeAt(index);
     });
     db.updateDb();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Habit Deleted"))
+    );
   }
 
    @override

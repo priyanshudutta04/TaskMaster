@@ -1,10 +1,13 @@
+
+import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:learningdart/utils/note_tile.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../db/db.dart';
 import '../utils/form_buttons.dart';
+import '../widgets/colors.dart';
 
 class NotesPage extends StatefulWidget {
   const NotesPage({super.key});
@@ -16,9 +19,11 @@ class NotesPage extends StatefulWidget {
 class _NotesPageState extends State<NotesPage> {
 
   final notebox = Hive.box("Notes_db");
-  //Database db = HabitDatabase();
+  NoteDatabase db = NoteDatabase();
 
-  List<Map<String, dynamic>> _items=[];
+  List<Map<String, dynamic>> _items=[
+   
+  ];
 
   final nameController=TextEditingController();
   final textController=TextEditingController();
@@ -48,6 +53,16 @@ class _NotesPageState extends State<NotesPage> {
     Navigator.of(context, rootNavigator: true).pop(context);
   }
 
+
+  Future<void> _deleteNote(int itemkey) async{
+    await notebox.delete(itemkey);
+    refreshItems();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Item Deleted"))
+
+    );
+  }
 
 
   //create new task 
@@ -113,6 +128,11 @@ class _NotesPageState extends State<NotesPage> {
     
   }
 
+   randomColor(){
+    Random random=Random();
+    return backgroundColors[random.nextInt(backgroundColors.length)];
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -144,10 +164,48 @@ class _NotesPageState extends State<NotesPage> {
                       itemCount: _items.length,
                       itemBuilder: (context, index) {
                         final currentItem=_items[index];
-                        
-                        return NoteTile(
-                          title: currentItem['name'], 
-                          para: currentItem['text'],
+
+                        return Padding(
+                          padding:  EdgeInsets.symmetric(vertical: 10),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+                            decoration: BoxDecoration(
+                              color: randomColor(),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child:  Row(                        
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(width: 8,),
+                                Expanded(
+                                  flex: 4,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,              
+                                    children: [
+                                      Text(currentItem['name'],
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600
+                                        ),
+                                      ),
+                                      SizedBox(height: 10,),
+                                      Text(currentItem['text']),
+                                      SizedBox(height: 10,),
+                                    ]
+                                  ),
+                                ),
+                                SizedBox(width: 10,),
+                                Expanded(
+                                  flex: 1,
+                                    child: IconButton(
+                                      onPressed: ()=>_deleteNote(currentItem['key']), 
+                                      icon: Icon(Icons.delete)
+                                      ),
+                                  
+                                )
+                              ]
+                            ),
+                          ),
                         );
                       },
                     ),

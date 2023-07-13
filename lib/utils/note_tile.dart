@@ -2,24 +2,31 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:learningdart/pages/notes.dart';
 
+import '../db/db.dart';
 import '../widgets/colors.dart';
 
+// ignore: must_be_immutable
 class NoteTile extends StatelessWidget {
-  const NoteTile({
+   NoteTile({
     super.key,
     required this.para,
-    required this.title
+    required this.title,
+    required this.deleteFunction,
   });
 
   final String title;
   final String para;
 
+  Function(BuildContext)? deleteFunction;
+
+
   randomColor(){
     Random random=Random();
     return backgroundColors[random.nextInt(backgroundColors.length)];
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +63,9 @@ class NoteTile extends StatelessWidget {
           Expanded(
             flex: 1,
             child: IconButton(
-              onPressed: null, 
+              onPressed:()=> deleteFunction, 
               icon: Icon(Icons.delete)
-              ),
+            ),     
           )
         ]
       ),
