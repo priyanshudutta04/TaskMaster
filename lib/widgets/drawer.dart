@@ -20,34 +20,46 @@ class AppDrawer extends StatelessWidget {
         color: context.cardColor,
         child: ListView(
           children:  [
-            DrawerHeader(
-              
-              padding: EdgeInsets.zero,
-              child: UserAccountsDrawerHeader(
-                margin: EdgeInsets.zero,
-                accountName: Text("User", style: TextStyle(
-                  color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold
-                  ),),
-                accountEmail: Text("usermail@gmail.com", style: TextStyle(color: Colors.white),),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/user_image2.jpg"),
+            SizedBox(height: 20,),
+            ListTile(
+              leading: CircleAvatar(
+                radius: 40,
+
+                backgroundColor: context.theme.canvasColor,
+                child: Icon(
+                  Icons.person,
+                  color: context.theme.hintColor,
+                  size: 30,
                 ),
+              ),
+        
+              title: Text(
+                "User",style: 
+                TextStyle(color: context.theme.hintColor,fontSize: 22),
               ),
             ),
 
-            ListTile(                                                                         
-              leading: Icon(CupertinoIcons.home, color: context.theme.hintColor,),   
-              title: Text("Home", textScaleFactor: 1.3,),    
+            SizedBox(height: 20,),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: ListTile(                                                                         
+                leading: Icon(CupertinoIcons.home, color: context.theme.hintColor,),   
+                title: Text("Home", textScaler: TextScaler.linear(1.2),),    
+              ),
             ),
            
-             ListTile(                                                                     
-             leading: Icon(CupertinoIcons.gear, color: context.theme.hintColor,),        
-              title: Text("Settings", textScaleFactor: 1.3,),
-              onTap: () {
-                Navigator.pushNamed(context, Myroutes.settingsRoute);
-              },
-                 
-            )
+             Padding(
+               padding: const EdgeInsets.symmetric(horizontal: 10),
+               child: ListTile(                                                                     
+               leading: Icon(CupertinoIcons.gear, color: context.theme.hintColor,),        
+                title: Text("Settings", textScaler: TextScaler.linear(1.2),),
+                onTap: () {
+                  Navigator.pushNamed(context, Myroutes.settingsRoute);
+                },
+                   
+                           ),
+             )
 
           ],    
         ),
