@@ -14,8 +14,10 @@ import 'package:learningdart/pages/settings.dart';
 import 'package:learningdart/utils/routes.dart';
 import 'package:learningdart/widgets/themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 
 import 'pages/login.dart';
+
 
 
 
@@ -37,19 +39,28 @@ void main()async {
 }
 
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   //const MyApp({super.key});
 
   bool isSwitched;
   MyApp({Key? key, this.isSwitched=false}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+        create: (context) => ThemeProvider(),
+        builder: (context, _) {
+          final themeProvider = Provider.of<ThemeProvider>(context);
 
     return MaterialApp(
       
-      themeMode: isSwitched? ThemeMode.dark:ThemeMode.light,
-      theme: Mytheme.lightTheme(context),
-      darkTheme: Mytheme.darkTheme(context),
+      themeMode: themeProvider.themeMode,
+      theme: MyThemes.lightTheme,
+      darkTheme: MyThemes.darkTheme,
       
       //themeMode: ThemeMode.system,                       // setting the theme
 
@@ -57,7 +68,7 @@ class MyApp extends StatelessWidget {
 
       initialRoute: "/",                              //this route will open first
       
-      routes: {                                       //creating routes for different pages in app
+      routes: {                                      
         "/": (context) => HomePage(),                //main root
         Myroutes.homeRoute: (context) => HomePage(),
         Myroutes.loginRoute: (context) => LoginPage(),
@@ -69,6 +80,7 @@ class MyApp extends StatelessWidget {
       },
     );   
   }
+  );
 }
 
 readPref() async {

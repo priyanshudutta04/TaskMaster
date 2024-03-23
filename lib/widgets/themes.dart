@@ -4,10 +4,21 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 
-class Mytheme{
-  static ThemeData lightTheme(BuildContext context)  => ThemeData(
-        
-    
+
+class ThemeProvider extends ChangeNotifier {
+  ThemeMode themeMode = ThemeMode.system;
+
+  bool get isDarkMode => themeMode == ThemeMode.dark;
+
+  void toggleTheme(bool isOn) {
+    themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
+}
+
+
+class MyThemes {
+  static final lightTheme = ThemeData(
         primarySwatch: Colors.deepPurple,               // changes all colours with respect to given colour
         fontFamily: GoogleFonts.roboto().fontFamily,
         primaryTextTheme: GoogleFonts.robotoTextTheme(),
@@ -24,11 +35,12 @@ class Mytheme{
           color: Colors.white,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.deepPurple),
-        )                        
-  );
+        ) 
+      
+    );
 
-  static ThemeData darkTheme(BuildContext context)  => ThemeData(
-        primarySwatch: Colors.deepPurple,
+  static final darkTheme = ThemeData(
+      primarySwatch: Colors.deepPurple,
         brightness: Brightness.dark,
         fontFamily: GoogleFonts.roboto().fontFamily,
         primaryTextTheme: GoogleFonts.robotoTextTheme(),
@@ -45,8 +57,6 @@ class Mytheme{
           color: Colors.black,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.deepPurple)
-        ),                       
-        
-  );
-
+      )
+    );
 }

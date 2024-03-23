@@ -2,8 +2,6 @@ import 'package:learningdart/utils/date_time.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 
-
-
 class ToDoDatabase{
   List toDoList =[];
 
@@ -32,10 +30,10 @@ class ToDoDatabase{
 }
 
 
-
-final habitbox = Hive.box("Habit_db");
-
 class HabitDatabase {
+
+  final habitbox = Hive.box("Habit_db");
+
   List habitList = [];
   Map<DateTime, int> heatMapDataSet = {};
 

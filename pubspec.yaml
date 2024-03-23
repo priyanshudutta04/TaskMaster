@@ -27,6 +27,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  provider: ^6.0.5
   google_fonts: ^5.1.0
   #easy ui design
   velocity_x: ^4.1.0

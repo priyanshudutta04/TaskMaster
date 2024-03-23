@@ -12,7 +12,6 @@ import 'package:learningdart/models/catalog.dart';
 
 import '../widgets/drawer.dart';
 import 'dolist.dart';
-import 'home_details.dart';
 
 
 
@@ -129,14 +128,7 @@ class CatalogList extends StatelessWidget {
               child: CatalogItem(catalog: catalog)
             );
           }
-        else{
-          return InkWell(   
-            onTap: () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => HomeDetails(catalog: catalog,),)
-              ),
-            child: CatalogItem(catalog: catalog)
-            );
-          }
+        
       },
       ).py12();
   }
@@ -153,7 +145,7 @@ class CatalogItem extends StatelessWidget {
           Hero(
             tag: Key(catalog.id.toString()),                //tag on both sides
             child: Container(
-              child: Image.network(catalog.img)              //prod image
+              child: Image.asset(catalog.img)              //prod image
               .box.p12.roundedSM.color(context.cardColor).make().p16().w32(context),
             ),
           ),
@@ -168,7 +160,6 @@ class CatalogItem extends StatelessWidget {
               catalog.desc.text.make().py8(),                         //prod description
               
               
-
               ]
             )
           )

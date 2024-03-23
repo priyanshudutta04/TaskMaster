@@ -4,6 +4,7 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learningdart/widgets/change_theme.dart';
 
 //import 'package:flutter/rendering.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -48,40 +49,21 @@ class _SettingsPageState extends State<SettingsPage> {
           child: ListView(
            children:  [
             //Mode Switch      
-              VxBox( 
+            VxBox(
                 child: ListTile(
-                  leading: Icon(CupertinoIcons.moon_stars_fill, color: context.primaryColor,).py16(),
-                  title: "Dark Mode".text.xl2.make().py16().px16(),
-                  trailing:  Switch(                                  //switch
-                    value: isSwitched,     
-                    onChanged: (value) async{
-                      
-                      isSwitched=value;
-                      //SharedPreferences sp = await SharedPreferences.getInstance();
-                      //sp.setBool("theme", value);  
-                      //print(value);       
-                      setState(() async {  
-                           
-                        //isSwitched=value;               
-                        //isSwitched = sp.getBool("theme")??false;
-                        //print(sp.getBool("theme")??false);
-                        await Navigator.push(                              //pushing value to main
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MyApp(isSwitched: value)),
-                        );
-                      });
-                    },
-                  ),
-                )  
-                              
-              ).color(context.canvasColor).roundedLg.square(70).make().py12(),
+              leading: Icon(
+                CupertinoIcons.moon_stars_fill,
+                color: context.primaryColor,
+              ).py16(),
+              title: "Dark Mode".text.xl2.make().py16().px16(),
+              trailing: ChangeThemeButtonWidget(),
+            )).color(context.canvasColor).roundedLg.square(70).make().py12(),
 
               //Reach us
               VxBox(                  
                 child:  ListTile(
                   leading: Icon(CupertinoIcons.mail_solid, color: context.primaryColor,).py16(),
-                  title: "Reach Us".text.xl2.make().py16().px16(),     
+                  title: "Contact Developer".text.xl2.make().py16().px16(),     
                  ),            
               ).color(context.canvasColor).roundedLg.square(70).make().py12(),
 

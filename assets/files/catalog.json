@@ -5,21 +5,21 @@
             "name": "Notes",
             "desc": "Keep all your notes safely",
             "color": "#33505a",
-            "image": "https://i.postimg.cc/Kjdq4nHn/notebook-edited.png"
+            "image": "assets/images/notes.png"
         },
         {
             "id": 2,
             "name": "Habit Tracker",
             "desc": "Work hard on your habits",         
             "color": "#00ac51",
-            "image": "https://i.postimg.cc/8k3nySzj/habit-edited.png"
+            "image": "assets/images/habit.png"
         },
         {
             "id": 3,
             "name": "To DO List",
             "desc": "Create a List for your daily needs",           
             "color": "#e0bfae",
-            "image": "https://i.postimg.cc/7Y2tdW5X/todo-edited.png"
+            "image": "assets/images/todo.png"
         }
         
         
