@@ -81,7 +81,7 @@ class _NotesPageState extends State<NotesPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [             
-                const Text("They hating. But they taking notes",style: TextStyle(fontSize: 16),),
+                const Text("Start taking notes.",style: TextStyle(fontSize: 16),),
                 //input
                 TextField(
                   style: TextStyle(color: context.primaryColor),
@@ -146,8 +146,22 @@ class _NotesPageState extends State<NotesPage> {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
-                child: ListView(
-                   children:  [
+                child: db.notesList.length==0? 
+                  Center(
+                    child:Padding(
+                      padding: const EdgeInsets.only(top: 150),
+                      child: Column(
+                        children: [
+                          Text("No Notes Present",style: TextStyle(fontSize: 20,color: context.theme.primaryColor),),
+                          SizedBox(height: 20,),
+                          Text("Tap on '+' to create your first note"),
+                        ],
+                      ),
+                    ),
+                  )
+                     
+                :ListView(
+                   children:  [                                     
                     ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

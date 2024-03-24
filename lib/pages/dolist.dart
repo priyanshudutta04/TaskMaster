@@ -78,7 +78,7 @@ class _DoListPageState extends State<DoListPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [             
-                Text("What are you planning?"),
+                Text("What are you planning?",style: TextStyle(fontSize: 16),),
                 //input
                 TextField(
                   controller: controller,
@@ -120,7 +120,7 @@ class _DoListPageState extends State<DoListPage> {
       //appbar
       appBar: AppBar(    
         backgroundColor: Colors.transparent,
-        title: "TO DO".text.xl2.color(context.primaryColor).make(),
+        title: "To Do List".text.xl2.color(context.primaryColor).make(),
       ),
       backgroundColor: context.cardColor,
 
@@ -131,7 +131,22 @@ class _DoListPageState extends State<DoListPage> {
       ),
       
       body: SafeArea(
-        child: ListView.builder(
+        child: db.toDoList.length==0? 
+          Center(
+            child:Padding(
+              padding: const EdgeInsets.only(top: 150),
+              child: Column(
+                children: [
+                  Text("No Task Present",style: TextStyle(fontSize: 20,color: context.theme.primaryColor),),
+                  SizedBox(height: 20,),
+                  Text("Tap on '+' to create your first to-do task"),
+                ],
+              ),
+            ),
+          )
+                     
+        :
+        ListView.builder(
           itemCount: db.toDoList.length,
           itemBuilder: ((context, index){
             

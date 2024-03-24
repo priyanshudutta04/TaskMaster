@@ -193,6 +193,22 @@ class _HabitPageState extends State<HabitPage> {
             startDate: habitbox.get("START_DATE"),
           ),
 
+          db.habitList.length==0? 
+            Center(
+              child:Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Column(
+                  children: [
+                    Text("No Habit Present",style: TextStyle(fontSize: 20,color: context.theme.primaryColor),),
+                    SizedBox(height: 20,),
+                    Text("Tap on '+' to create your first habit"),
+                  ],
+                ),
+              ),
+            )
+                
+          :
+
           // list of habits
           ListView.builder(
             shrinkWrap: true,

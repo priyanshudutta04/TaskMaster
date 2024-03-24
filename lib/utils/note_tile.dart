@@ -20,6 +20,7 @@ class NoteTile extends StatelessWidget {
 
 
   randomColor(){
+
     Random random=Random();
     return backgroundColors[random.nextInt(backgroundColors.length)];
   }
