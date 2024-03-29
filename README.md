@@ -7,7 +7,10 @@ An application designed to track your habit, take notes, create to do list for y
 <br/>
 <p align="center"><img src="https://github.com/priyanshudutta04/priyanshudutta04/blob/main/git%20images/taskmaster_screens.png?raw=true" width="80%"></p>
 
+<br/>
 
+## Available on
+<a href="https://www.indusappstore.com/" target="blank"><p align="left"><img src="https://docstore.indusappstore.com/public/external/indus-appstore-web-static/1129/static/8dc3754ce7ca2382df6645d214185614/seo_image.png" width="40%"></p>
 
 ## Building from Source
 
