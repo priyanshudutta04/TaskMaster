@@ -10,7 +10,10 @@ An application designed to track your habit, take notes, create to do list for y
 <br/>
 
 ## Available on
-<a href="https://www.indusappstore.com/" target="blank"><p align="left"><img src="https://docstore.indusappstore.com/public/external/indus-appstore-web-static/1129/static/8dc3754ce7ca2382df6645d214185614/seo_image.png" width="40%"></p>
+[<img src="https://docstore.indusappstore.com/public/external/indus-appstore-web-static/1129/static/8dc3754ce7ca2382df6645d214185614/seo_image.png"
+     alt="Get it on Google Play"
+     height="130">](https://www.indusappstore.com/)
+
 
 ## Building from Source
 
